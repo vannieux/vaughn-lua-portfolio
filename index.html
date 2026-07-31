@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Award-winning freelance web designer and frontend engineer creating premium, responsive websites.">
+    <title>VL | Premium Web Design & Frontend Development</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#60A5FA',
+                        surface: '#F8FAFC',
+                        ink: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-gray-600 font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+
+    <!-- Background Ambient Gradients -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-100/50 blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-50/50 blur-[120px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-ink tracking-tighter">VL<span class="text-primary">.</span></a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-medium hover:text-primary transition-colors">Home</a>
+                <a href="#projects" class="text-sm font-medium hover:text-primary transition-colors">Projects</a>
+                <a href="#services" class="text-sm font-medium hover:text-primary transition-colors">Services</a>
+                <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">About</a>
+                <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+                <a href="#contact" class="px-5 py-2.5 bg-ink text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">Hire Me</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-ink p-2" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4 shadow-xl">
+                <a href="#home" class="mobile-link text-base font-medium">Home</a>
+                <a href="#projects" class="mobile-link text-base font-medium">Projects</a>
+                <a href="#services" class="mobile-link text-base font-medium">Services</a>
+                <a href="#about" class="mobile-link text-base font-medium">About</a>
+                <a href="#contact" class="mobile-link text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 reveal-left z-10">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 text-primary text-sm font-semibold mb-6 border border-blue-100">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    <span>Available for new projects</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-ink leading-[1.1] tracking-tight mb-6">
+                    Designing Websites That Make Businesses <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Stand Out.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-500 mb-8 leading-relaxed max-w-lg">
+                    I create premium, responsive websites with clean user experiences, modern interfaces, and high-performance frontend development for businesses and startups.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#projects" class="px-8 py-4 bg-primary text-white rounded-full font-semibold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all hover:-translate-y-1 flex items-center gap-2 group">
+                        View Projects <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-surface text-ink rounded-full font-semibold border border-gray-200 hover:border-gray-300 transition-all hover:bg-gray-50">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 relative h-[500px] reveal-right">
+                <!-- Floating Mockups Composition -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <!-- Main Mockup -->
+                    <div class="absolute z-20 w-4/5 bg-white rounded-xl shadow-2xl shadow-blue-900/10 border border-gray-100 overflow-hidden float-anim">
+                        <div class="h-6 bg-surface border-b border-gray-100 flex items-center px-3 gap-1.5">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="h-64 bg-gradient-to-br from-surface to-gray-100 p-4">
+                            <div class="w-full h-full rounded-lg border border-gray-200/50 bg-white shadow-sm"></div>
+                        </div>
+                    </div>
+                    <!-- Secondary Mockup -->
+                    <div class="absolute z-10 w-3/5 right-0 bottom-10 bg-white rounded-xl shadow-2xl shadow-blue-900/10 border border-gray-100 overflow-hidden float-anim-delayed translate-x-8 translate-y-8">
+                         <div class="h-6 bg-surface border-b border-gray-100 flex items-center px-3 gap-1.5">
+                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                        </div>
+                        <div class="h-48 bg-gradient-to-tr from-blue-50 to-surface p-3">
+                             <div class="w-full h-full rounded-md border border-white/50 bg-white/50 backdrop-blur-sm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section id="stats" class="py-12 border-y border-gray-100 bg-surface/50">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-gray-200/50">
+                <div class="text-center reveal-up">
+                    <h3 class="text-4xl font-bold text-ink mb-1"><span class="counter" data-target="3">0</span>+</h3>
+                    <p class="text-sm font-medium text-gray-500">Featured Projects</p>
+                </div>
+                <div class="text-center reveal-up" style="transition-delay: 100ms;">
+                    <h3 class="text-4xl font-bold text-ink mb-1"><span class="counter" data-target="100">0</span>%</h3>
+                    <p class="text-sm font-medium text-gray-500">Responsive Design</p>
+                </div>
+                <div class="text-center reveal-up" style="transition-delay: 200ms;">
+                    <h3 class="text-4xl font-bold text-ink mb-1"><span class="counter" data-target="95">0</span>+</h3>
+                    <p class="text-sm font-medium text-gray-500">Performance Score</p>
+                </div>
+                <div class="text-center reveal-up" style="transition-delay: 300ms;">
+                    <h3 class="text-4xl font-bold text-ink mb-1">24/7</h3>
+                    <p class="text-sm font-medium text-gray-500">Passion for Learning</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section id="projects" class="py-24 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4">Selected Work</h2>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto">A showcase of premium websites crafted with precision, focusing on design aesthetics and robust frontend architecture.</p>
+            </div>
+
+            <div class="space-y-20">
+                <!-- Project 1 -->
+                <article class="flex flex-col md:flex-row gap-10 items-center reveal-up group">
+                    <div class="w-full md:w-3/5 rounded-2xl overflow-hidden shadow-xl bg-surface border border-gray-100 relative">
+                        <!-- Browser Chrome -->
+                        <div class="h-8 bg-gray-50 border-b border-gray-100 flex items-center px-4 gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+                        </div>
+                        <div class="aspect-video bg-gradient-to-br from-blue-100/50 to-purple-100/50 flex items-center justify-center overflow-hidden relative">
+                             <!-- Placeholder Image Area (Replace src here) -->
+                            <div class="absolute inset-4 rounded-xl shadow-sm bg-white border border-white/50 backdrop-blur-md flex items-center justify-center text-gray-400 font-medium transform group-hover:scale-[1.02] transition-transform duration-500">
+                                Project Preview Image
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/5">
+                        <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">AI Workflow Platform</span>
+                        <h3 class="text-3xl font-bold text-ink mb-4">NovaFlow AI</h3>
+                        <p class="text-gray-500 mb-6 leading-relaxed">A cutting-edge platform for automating workflows using artificial intelligence. Features a modern dashboard, glassmorphic UI elements, and seamless API integrations.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">HTML5</span>
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">JavaScript</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://novaflow-ai-tan.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-ink text-white rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2">
+                                Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="px-6 py-2.5 bg-white border border-gray-200 text-ink rounded-full text-sm font-semibold hover:bg-surface transition-colors flex items-center gap-2">
+                                Source Code <i data-lucide="github" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="flex flex-col md:flex-row-reverse gap-10 items-center reveal-up group">
+                    <div class="w-full md:w-3/5 rounded-2xl overflow-hidden shadow-xl bg-surface border border-gray-100 relative">
+                        <!-- Browser Chrome -->
+                        <div class="h-8 bg-gray-50 border-b border-gray-100 flex items-center px-4 gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+                        </div>
+                        <div class="aspect-video bg-gradient-to-br from-teal-100/50 to-blue-100/50 flex items-center justify-center overflow-hidden relative">
+                            <div class="absolute inset-4 rounded-xl shadow-sm bg-white border border-white/50 backdrop-blur-md flex items-center justify-center text-gray-400 font-medium transform group-hover:scale-[1.02] transition-transform duration-500">
+                                Project Preview Image
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/5">
+                        <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">Healthcare Web Design</span>
+                        <h3 class="text-3xl font-bold text-ink mb-4">Luxedent Dental Clinic</h3>
+                        <p class="text-gray-500 mb-6 leading-relaxed">A premium, trustworthy online presence for a high-end dental clinic. Focuses on accessibility, fast load times, and an intuitive appointment booking flow.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">UI/UX</span>
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">Vanilla JS</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://luxedent-dental-clinic.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-ink text-white rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2">
+                                Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="px-6 py-2.5 bg-white border border-gray-200 text-ink rounded-full text-sm font-semibold hover:bg-surface transition-colors flex items-center gap-2">
+                                Source Code <i data-lucide="github" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="flex flex-col md:flex-row gap-10 items-center reveal-up group">
+                    <div class="w-full md:w-3/5 rounded-2xl overflow-hidden shadow-xl bg-surface border border-gray-100 relative">
+                        <!-- Browser Chrome -->
+                        <div class="h-8 bg-gray-50 border-b border-gray-100 flex items-center px-4 gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
+                        </div>
+                        <div class="aspect-video bg-gradient-to-br from-orange-100/50 to-amber-100/50 flex items-center justify-center overflow-hidden relative">
+                            <div class="absolute inset-4 rounded-xl shadow-sm bg-white border border-white/50 backdrop-blur-md flex items-center justify-center text-gray-400 font-medium transform group-hover:scale-[1.02] transition-transform duration-500">
+                                Project Preview Image
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/5">
+                        <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">Real Estate Platform</span>
+                        <h3 class="text-3xl font-bold text-ink mb-4">Aurelia Estates</h3>
+                        <p class="text-gray-500 mb-6 leading-relaxed">An elegant property listing website for luxury real estate. Features high-quality image galleries, complex search filtering, and smooth page transitions.</p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">Responsive Design</span>
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">Frontend Dev</span>
+                            <span class="px-3 py-1 bg-surface border border-gray-200 rounded-full text-xs font-semibold text-ink">Performance</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://aurelia-estates-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-ink text-white rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center gap-2">
+                                Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                            <a href="#" class="px-6 py-2.5 bg-white border border-gray-200 text-ink rounded-full text-sm font-semibold hover:bg-surface transition-colors flex items-center gap-2">
+                                Source Code <i data-lucide="github" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="py-24 bg-surface border-y border-gray-100">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 reveal-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4">Services</h2>
+                    <p class="text-lg text-gray-500 max-w-2xl mx-auto">Comprehensive digital solutions designed to elevate your brand and drive results.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Service Card -->
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 reveal-up group">
+                        <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="monitor" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ink mb-3">Responsive Business Websites</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Custom-built websites that look flawless on desktops, tablets, and mobile devices.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 reveal-up group" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="layout-template" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ink mb-3">Landing Pages</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">High-converting landing pages optimized for marketing campaigns and product launches.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 reveal-up group" style="transition-delay: 200ms;">
+                        <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ink mb-3">Website Redesign</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Modernizing outdated websites to improve user experience, aesthetics, and performance.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 reveal-up group">
+                        <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ink mb-3">Portfolio Websites</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Showcase your work with stunning, bespoke portfolio designs tailored to your niche.</p>
+                    </div>
+                    <!-- Service Card -->
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 reveal-up group" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="code-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-ink mb-3">Frontend Development</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Clean, semantic HTML, CSS, and JavaScript to bring complex UI/UX designs to life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Work With Me -->
+        <section class="py-24 max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="w-full lg:w-1/2 reveal-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-ink mb-6">Why Work With Me</h2>
+                    <p class="text-lg text-gray-500 mb-8">I don't just build websites; I craft digital experiences that align with your business goals. Quality, performance, and attention to detail are at the core of everything I do.</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-ink font-medium">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div> Premium UI/UX
+                        </li>
+                        <li class="flex items-center gap-3 text-ink font-medium">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div> Responsive Design
+                        </li>
+                        <li class="flex items-center gap-3 text-ink font-medium">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div> Clean Code
+                        </li>
+                        <li class="flex items-center gap-3 text-ink font-medium">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div> Performance Focused
+                        </li>
+                        <li class="flex items-center gap-3 text-ink font-medium">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div> SEO-Friendly Structure
+                        </li>
+                        <li class="flex items-center gap-3 text-ink font-medium">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div> Modern Development Standards
+                        </li>
+                        <li class="flex items-center gap-3 text-ink font-medium">
+                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div> Attention to Detail
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 reveal-right">
+                    <div class="space-y-4 mt-8">
+                        <div class="bg-surface rounded-2xl p-6 aspect-square flex flex-col justify-center border border-gray-100 shadow-sm">
+                            <h4 class="text-4xl font-bold text-primary mb-2">99%</h4>
+                            <p class="text-sm font-medium text-gray-500">Client Satisfaction</p>
+                        </div>
+                        <div class="bg-ink rounded-2xl p-6 aspect-square flex flex-col justify-center shadow-lg text-white">
+                            <i data-lucide="zap" class="w-8 h-8 text-secondary mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2">Lightning Fast</h4>
+                            <p class="text-xs text-gray-300">Optimized for sub-second load times.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white border border-gray-100 rounded-2xl p-6 aspect-square flex flex-col justify-center shadow-sm">
+                            <i data-lucide="smartphone" class="w-8 h-8 text-primary mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2 text-ink">Mobile First</h4>
+                            <p class="text-xs text-gray-500">Flawless on every device.</p>
+                        </div>
+                        <div class="bg-surface rounded-2xl p-6 aspect-square flex flex-col justify-center border border-gray-100 shadow-sm">
+                            <h4 class="text-4xl font-bold text-primary mb-2">100%</h4>
+                            <p class="text-sm font-medium text-gray-500">Pixel Perfect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-ink text-white">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/2 reveal-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        I am a Computer Science student with a passion for creating modern, responsive, and visually engaging websites. I enjoy transforming ideas into clean digital experiences that combine aesthetics, usability, and performance. My focus is building websites that not only look professional but also provide a smooth experience across all devices.
+                    </p>
+                    
+                    <div class="mb-8 border-l-2 border-primary pl-4">
+                        <h4 class="text-lg font-bold mb-1">Bachelor of Science in Computer Science</h4>
+                        <p class="text-gray-400 text-sm">(Current) | Science, Technology, Engineering and Mathematics (STEM)</p>
+                    </div>
+
+                    <h4 class="text-sm uppercase tracking-wider font-bold text-gray-400 mb-4">Skills</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">HTML</span>
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">CSS</span>
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">JavaScript</span>
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">Figma</span>
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">Responsive Design</span>
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">UI/UX</span>
+                        <span class="px-3 py-1.5 bg-gray-800 rounded-lg text-sm font-medium">Frontend Development</span>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 reveal-right flex justify-center">
+                    <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border border-gray-700 shadow-2xl">
+                        <!-- Profile Reference Image -->
+                        <img src="image_07897d.png" alt="Creative Web Designer Profile" class="w-full h-full object-cover object-center filter hover:scale-105 transition-transform duration-700" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow -->
+        <section class="py-24 max-w-7xl mx-auto px-6 border-b border-gray-100">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4">Workflow</h2>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto">A streamlined process ensuring transparency and high-quality results.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                <!-- Decorative Line -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gray-200 -z-10"></div>
+                
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center reveal-up hover:-translate-y-2 transition-transform">
+                    <div class="w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-lg shadow-blue-500/30">1</div>
+                    <h3 class="text-xl font-bold text-ink mb-2">Planning</h3>
+                    <p class="text-sm text-gray-500">Understanding your goals, target audience, and technical requirements.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center reveal-up hover:-translate-y-2 transition-transform" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-lg shadow-blue-500/30">2</div>
+                    <h3 class="text-xl font-bold text-ink mb-2">Design</h3>
+                    <p class="text-sm text-gray-500">Creating wireframes and high-fidelity UI/UX mockups in Figma.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center reveal-up hover:-translate-y-2 transition-transform" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-lg shadow-blue-500/30">3</div>
+                    <h3 class="text-xl font-bold text-ink mb-2">Development</h3>
+                    <p class="text-sm text-gray-500">Writing clean, responsive, and performance-optimized code.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center reveal-up hover:-translate-y-2 transition-transform" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-lg shadow-blue-500/30">4</div>
+                    <h3 class="text-xl font-bold text-ink mb-2">Delivery</h3>
+                    <p class="text-sm text-gray-500">Testing, deployment, and handing over a polished final product.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-24 bg-surface">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 reveal-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4">Client Feedback</h2>
+                    <p class="text-lg text-gray-500 max-w-2xl mx-auto">Hear what businesses have to say about our collaboration.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Review 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 reveal-up">
+                        <div class="flex text-amber-400 mb-4">
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"Exceptional work! The attention to detail and smooth animations completely transformed our landing page. Highly recommend for any premium web design needs."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-white shadow-sm overflow-hidden"><div class="w-full h-full bg-blue-100"></div></div>
+                            <div>
+                                <h5 class="text-ink font-bold text-sm">Sarah Jenkins</h5>
+                                <p class="text-gray-400 text-xs">CEO, TechStart</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 reveal-up" style="transition-delay: 100ms;">
+                        <div class="flex text-amber-400 mb-4">
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"Delivered exactly what was promised and then some. The responsive design works flawlessly across all devices, and the code is incredibly clean."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-white shadow-sm overflow-hidden"><div class="w-full h-full bg-teal-100"></div></div>
+                            <div>
+                                <h5 class="text-ink font-bold text-sm">Marcus Chen</h5>
+                                <p class="text-gray-400 text-xs">Founder, Studio Eight</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 reveal-up" style="transition-delay: 200ms;">
+                        <div class="flex text-amber-400 mb-4">
+                            <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">"Professional, fast, and highly communicative. The final portfolio website exceeded my expectations and looked like a $5,000+ agency project."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-white shadow-sm overflow-hidden"><div class="w-full h-full bg-purple-100"></div></div>
+                            <div>
+                                <h5 class="text-ink font-bold text-sm">Elena Rodriguez</h5>
+                                <p class="text-gray-400 text-xs">Creative Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-24 max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-ink mb-4">FAQ</h2>
+            </div>
+            
+            <div class="space-y-4 reveal-up">
+                <!-- Accordion Item 1 -->
+                <div class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none">
+                        What types of websites do you build?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                        I build a wide range of websites including corporate sites, landing pages, personal portfolios, and custom web applications tailored to business needs.
+                    </div>
+                </div>
+                <!-- Accordion Item 2 -->
+                <div class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none">
+                        Can you redesign existing websites?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                        Yes, I specialize in revamping outdated websites to modernize their aesthetic, improve user experience, and boost overall performance metrics.
+                    </div>
+                </div>
+                <!-- Accordion Item 3 -->
+                <div class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none">
+                        Do you build responsive websites?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                        Absolutely. Every project I develop follows a mobile-first approach, ensuring it looks and functions perfectly on smartphones, tablets, and large desktop screens.
+                    </div>
+                </div>
+                <!-- Accordion Item 4 -->
+                <div class="border border-gray-200 rounded-2xl bg-white overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none">
+                        What technologies do you use?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                        My core stack includes HTML5, Tailwind CSS, and Vanilla JavaScript for ultra-fast, lightweight builds. I avoid heavy frameworks when clean, pure code provides better performance.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-left">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-ink mb-6 leading-tight">Let's Build Something <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Amazing</span></h2>
+                    <p class="text-lg text-gray-500 mb-8">Ready to elevate your online presence? Drop me a message and let's discuss how we can collaborate on your next project.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-ink font-medium">
+                            <div class="w-10 h-10 rounded-full bg-surface border border-gray-100 flex items-center justify-center"><i data-lucide="mail" class="w-5 h-5 text-primary"></i></div> hello@example.com
+                        </div>
+                        <div class="flex items-center gap-4 text-ink font-medium">
+                            <div class="w-10 h-10 rounded-full bg-surface border border-gray-100 flex items-center justify-center"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i></div> Available Worldwide
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 reveal-right">
+                    <form class="space-y-6" onsubmit="event.preventDefault();">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-ink mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-ink mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" placeholder="john@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-ink mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-surface focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-ink text-white font-bold rounded-xl hover:bg-gray-800 transition-colors shadow-lg flex justify-center items-center gap-2">
+                            Send Message <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-gray-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <a href="#home" class="text-3xl font-bold text-ink tracking-tighter">VL<span class="text-primary">.</span></a>
+                
+                <div class="flex items-center space-x-6 text-sm font-medium text-gray-500">
+                    <a href="#home" class="hover:text-ink transition-colors">Home</a>
+                    <a href="#projects" class="hover:text-ink transition-colors">Projects</a>
+                    <a href="#services" class="hover:text-ink transition-colors">Services</a>
+                    <a href="#about" class="hover:text-ink transition-colors">About</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#" aria-label="GitHub" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-ink hover:border-ink transition-all">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#0A66C2] hover:border-[#0A66C2] transition-all">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" aria-label="Fiverr" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#1DBF73] hover:border-[#1DBF73] transition-all">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.98 9.3v10.38h-3.23V12.1h-2.15v7.57H11.3V12.1H9.15v7.57H5.93V9.3h14.05zm-14.05-3.3h14.05v2.8H5.93V6z" /></svg>
+                    </a>
+                    <a href="#" aria-label="Behance" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-[#1769ff] hover:border-[#1769ff] transition-all">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v2h7V7zm1.7 8.3c0-2.8-2-5.4-5.5-5.4-3.5 0-5.7 2.6-5.7 6.1 0 3.7 2.5 6 6 6 3.1 0 5-2.1 5.3-4.5h-2.5c-.2 1.1-1.2 2-2.7 2-1.7 0-2.7-1.1-2.9-2.8h8.1c0-.4.1-.9.1-1.4zm-8.2-1.6c.2-1.3 1.2-2.3 2.6-2.3 1.5 0 2.3.9 2.5 2.3h-5.1zm-3.3-3.9h-4V5H5v14h3.3v-4.8h3c2.7 0 4.6-1.5 4.6-4.5 0-2.6-1.7-4.4-4.5-4.4h-2.2v4.5zm0-2.3h1.8c1.3 0 1.9.6 1.9 1.7 0 1.1-.6 1.7-1.9 1.7h-1.8v-3.4z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center text-sm text-gray-400 border-t border-gray-200 pt-8">
+                &copy; <span id="year"></span> VL Portfolio. All rights reserved. Built with HTML, Vanilla JS & Tailwind.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
