@@ -381,12 +381,12 @@ textarea:focus-visible,
     transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
 }
 
-/* Projects: clip-path wipe, like a panel sliding out from behind a mask */
+/* Projects: wipe reveal via overflow mask on wrapper, safe across browsers
+   (avoids clip-path intersection quirks that could leave content hidden) */
 .reveal-clip {
     opacity: 0;
-    clip-path: inset(0 0 100% 0);
     transform: translateY(24px);
-    transition: opacity 0.6s ease-out, clip-path 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+    transition: opacity 0.7s ease-out, transform 0.9s var(--ease-out-expo);
 }
 
 /* Services: pop with a slight overshoot, like a card being placed down */
@@ -442,7 +442,6 @@ textarea:focus-visible,
 
 .reveal-clip.active {
     opacity: 1;
-    clip-path: inset(0 0 0% 0);
     transform: translateY(0);
 }
 

@@ -177,6 +177,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
+    // Safety net: if any reveal element somehow never gets triggered by the
+    // observer (slow connections, browser quirks, layout races), force it
+    // visible after a short delay so content can never be stuck hidden.
+    setTimeout(() => {
+        revealElements.forEach(el => {
+            if (!el.classList.contains('active')) {
+                el.classList.add('active');
+            }
+        });
+    }, 3000);
+
     // ------------------------------------------------------------------
     // 8. Animated Statistics Counters
     // ------------------------------------------------------------------
