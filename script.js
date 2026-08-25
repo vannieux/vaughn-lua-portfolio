@@ -26,10 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loader) {
         document.body.classList.add('overflow-hidden');
         window.addEventListener('load', () => {
-            setTimeout(hideLoader, prefersReducedMotion ? 0 : 550);
+            setTimeout(hideLoader, prefersReducedMotion ? 0 : 500);
         });
-        // Safety net in case load event is delayed
-        setTimeout(hideLoader, 2500);
+        setTimeout(hideLoader, 2200);
     }
 
     // ------------------------------------------------------------------
@@ -74,11 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollY = window.scrollY;
 
         if (navbar) {
-            if (scrollY > 20) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
+            navbar.classList.toggle('nav-scrolled', scrollY > 20);
         }
 
         if (scrollProgress) {
@@ -88,11 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (backToTop) {
-            if (scrollY > 600) {
-                backToTop.classList.remove('hidden-state');
-            } else {
-                backToTop.classList.add('hidden-state');
-            }
+            backToTop.classList.toggle('hidden-state', scrollY <= 600);
         }
     };
 
@@ -130,12 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Scroll Reveal Animations (Intersection Observer)
     // ------------------------------------------------------------------
     const revealElements = document.querySelectorAll(
-        '.reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-clip, .reveal-pop, .reveal-focus, .reveal-flip, .reveal-step, .reveal-count'
+        '.reveal-up, .reveal-left, .reveal-right, .reveal-line, .reveal-fade, .reveal-pop'
     );
 
     const revealOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
     };
 
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
@@ -144,47 +135,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
             entry.target.classList.add('active');
 
-            const counterEl = entry.target.querySelector('.counter');
-            if (counterEl && !counterEl.classList.contains('counted')) {
-                animateCounter(counterEl);
-                counterEl.classList.add('counted');
-            }
+            const counterEls = entry.target.querySelectorAll('.counter');
+            counterEls.forEach(counterEl => {
+                if (!counterEl.classList.contains('counted')) {
+                    animateCounter(counterEl);
+                    counterEl.classList.add('counted');
+                }
+            });
 
             observer.unobserve(entry.target);
         });
     }, revealOptions);
 
-    // Auto-stagger: elements sharing a direct parent and the same reveal
-    // class get incremental delays so grids/lists cascade instead of
-    // popping in simultaneously. An explicit inline transition-delay
-    // already set in markup is left untouched.
+    // Auto-stagger: elements sharing a direct parent get incremental delays
     const staggerGroups = new Map();
     revealElements.forEach(el => {
         if (el.style.transitionDelay) return;
         const parent = el.parentElement;
         if (!parent) return;
-        const key = parent;
-        const list = staggerGroups.get(key) || [];
+        const list = staggerGroups.get(parent) || [];
         list.push(el);
-        staggerGroups.set(key, list);
+        staggerGroups.set(parent, list);
     });
     staggerGroups.forEach(list => {
         if (list.length < 2) return;
         list.forEach((el, i) => {
-            el.style.transitionDelay = `${Math.min(i, 5) * 90}ms`;
+            el.style.transitionDelay = `${Math.min(i, 6) * 70}ms`;
         });
     });
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // Safety net: if any reveal element somehow never gets triggered by the
-    // observer (slow connections, browser quirks, layout races), force it
-    // visible after a short delay so content can never be stuck hidden.
+    // Safety net: force-reveal anything the observer somehow never triggers
     setTimeout(() => {
         revealElements.forEach(el => {
-            if (!el.classList.contains('active')) {
-                el.classList.add('active');
-            }
+            if (!el.classList.contains('active')) el.classList.add('active');
         });
     }, 3000);
 
@@ -197,16 +182,14 @@ document.addEventListener('DOMContentLoaded', () => {
             counter.innerText = target;
             return;
         }
-        const duration = 1800;
+        const duration = 1600;
         const startTime = performance.now();
-
         const easeOutExpo = t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
         const updateCounter = (now) => {
             const elapsed = now - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            const eased = easeOutExpo(progress);
-            const current = Math.round(eased * target);
+            const current = Math.round(easeOutExpo(progress) * target);
             counter.innerText = current;
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
@@ -218,60 +201,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ------------------------------------------------------------------
-    // 9. Hero Code Editor — self-typing signature animation
+    // 9. Hero Build Log — signature ticker, real-looking deploy events
     // ------------------------------------------------------------------
-    const editorBody = document.getElementById('editor-body');
+    const buildlog = document.getElementById('buildlog-body');
 
-    if (editorBody) {
-        // Each line stored as HTML (already syntax-highlighted) + plain-text length for timing
-        const codeLines = [
-            `<span class="syn-cmt">// portfolio.build.js</span>`,
-            `<span class="syn-key">const</span> <span class="syn-plain">developer</span> <span class="syn-punc">=</span> <span class="syn-punc">{</span>`,
-            `&nbsp;&nbsp;<span class="syn-attr">role</span><span class="syn-punc">:</span> <span class="syn-str">"Frontend Engineer"</span><span class="syn-punc">,</span>`,
-            `&nbsp;&nbsp;<span class="syn-attr">stack</span><span class="syn-punc">:</span> <span class="syn-punc">[</span><span class="syn-str">"HTML5"</span><span class="syn-punc">,</span> <span class="syn-str">"Tailwind"</span><span class="syn-punc">,</span> <span class="syn-str">"JS"</span><span class="syn-punc">]</span><span class="syn-punc">,</span>`,
-            `&nbsp;&nbsp;<span class="syn-attr">focus</span><span class="syn-punc">:</span> <span class="syn-str">"clean, responsive UI"</span><span class="syn-punc">,</span>`,
-            `&nbsp;&nbsp;<span class="syn-attr">status</span><span class="syn-punc">:</span> <span class="syn-fn">available</span><span class="syn-punc">()</span>`,
-            `<span class="syn-punc">};</span>`,
-            `&nbsp;`,
-            `<span class="syn-fn">ship</span><span class="syn-punc">(</span><span class="syn-plain">developer</span><span class="syn-punc">);</span>`
+    if (buildlog) {
+        const events = [
+            { tick: '✓', text: 'index.html      compiled' },
+            { tick: '✓', text: 'styles.css      minified' },
+            { tick: '✓', text: 'script.js       linted, 0 warnings' },
+            { tick: '✓', text: 'lighthouse      performance 98' },
+            { tick: '→', text: 'deployed        vercel.app' },
+            { tick: '✓', text: 'status          live' },
         ];
 
         if (prefersReducedMotion) {
-            editorBody.innerHTML = codeLines
-                .map(l => `<span class="editor-line">${l}</span>`)
+            buildlog.innerHTML = events
+                .map(e => `<div class="buildlog-line shown"><span class="buildlog-tick">${e.tick}</span><span>${e.text}</span></div>`)
                 .join('');
         } else {
-            let lineIndex = 0;
-
-            const typeNextLine = () => {
-                if (lineIndex >= codeLines.length) {
-                    // Blinking caret rests on the final line
-                    const lastLine = editorBody.lastElementChild;
-                    if (lastLine) {
-                        const caret = document.createElement('span');
-                        caret.className = 'editor-caret';
-                        lastLine.appendChild(caret);
+            let i = 0;
+            const typeNext = () => {
+                if (i >= events.length) {
+                    const last = buildlog.lastElementChild;
+                    if (last) {
+                        const cursor = document.createElement('span');
+                        cursor.className = 'buildlog-cursor';
+                        last.appendChild(cursor);
                     }
                     return;
                 }
-
-                const lineEl = document.createElement('span');
-                lineEl.className = 'editor-line';
-                lineEl.innerHTML = codeLines[lineIndex];
-                lineEl.style.opacity = '0';
-                editorBody.appendChild(lineEl);
-
-                requestAnimationFrame(() => {
-                    lineEl.style.transition = 'opacity 0.25s ease';
-                    lineEl.style.opacity = '1';
-                });
-
-                lineIndex++;
-                setTimeout(typeNextLine, 220);
+                const e = events[i];
+                const line = document.createElement('div');
+                line.className = 'buildlog-line';
+                line.innerHTML = `<span class="buildlog-tick">${e.tick}</span><span>${e.text}</span>`;
+                buildlog.appendChild(line);
+                requestAnimationFrame(() => line.classList.add('shown'));
+                i++;
+                setTimeout(typeNext, 320);
             };
-
-            // Kick off shortly after load so it's visible once hero is in view
-            setTimeout(typeNextLine, 700);
+            setTimeout(typeNext, 600);
         }
     }
 
@@ -290,14 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isOpening) {
                 content.classList.remove('hidden');
-                setTimeout(() => {
-                    content.classList.add('open');
-                }, 10);
+                setTimeout(() => content.classList.add('open'), 10);
             } else {
                 content.classList.remove('open');
-                setTimeout(() => {
-                    content.classList.add('hidden');
-                }, 400);
+                setTimeout(() => content.classList.add('hidden'), 400);
             }
         });
     });
@@ -319,34 +284,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 projectCards.forEach(card => {
                     const category = card.getAttribute('data-category');
                     const show = filter === 'all' || category === filter;
-                    card.style.display = show ? '' : 'none';
+
+                    if (show) {
+                        card.style.display = '';
+                        // Allow the browser to register the display change before animating in
+                        requestAnimationFrame(() => card.classList.remove('filtered-out'));
+                    } else {
+                        card.classList.add('filtered-out');
+                        setTimeout(() => {
+                            if (card.classList.contains('filtered-out')) {
+                                card.style.display = 'none';
+                            }
+                        }, 300);
+                    }
                 });
-            });
-        });
-    }
-
-    // ------------------------------------------------------------------
-    // 12. Subtle tilt on hero mockups following cursor (desktop only)
-    // ------------------------------------------------------------------
-    const heroStage = document.getElementById('hero-stage');
-
-    if (heroStage && window.matchMedia('(hover: hover)').matches && !prefersReducedMotion) {
-        const mockups = heroStage.querySelectorAll('[data-tilt]');
-
-        heroStage.addEventListener('mousemove', (e) => {
-            const rect = heroStage.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-            mockups.forEach(el => {
-                const strength = parseFloat(el.getAttribute('data-tilt')) || 6;
-                el.style.transform = `rotateY(${x * strength}deg) rotateX(${-y * strength}deg)`;
-            });
-        });
-
-        heroStage.addEventListener('mouseleave', () => {
-            mockups.forEach(el => {
-                el.style.transform = 'rotateY(0deg) rotateX(0deg)';
             });
         });
     }

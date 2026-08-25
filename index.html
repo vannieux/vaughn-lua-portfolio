@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VL — freelance web designer and frontend engineer building premium, responsive websites with clean code and modern interfaces.">
-    <meta name="theme-color" content="#0B1120">
-    <title>VL | Premium Web Design & Frontend Development</title>
+    <meta name="theme-color" content="#111214">
+    <title>VL | Web Design & Frontend Development</title>
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="VL | Premium Web Design & Frontend Development">
+    <meta property="og:title" content="VL | Web Design & Frontend Development">
     <meta property="og:description" content="Freelance web designer and frontend engineer creating premium, responsive websites.">
     <meta property="og:type" content="website">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,347 +23,256 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['"Space Grotesk"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Fraunces', 'ui-serif', 'serif'],
+                        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
                     },
                     colors: {
-                        primary: '#2563EB',
-                        'primary-dim': '#1D4ED8',
-                        secondary: '#60A5FA',
-                        accent: '#22D3EE',
-                        surface: '#F7F9FC',
-                        ink: '#0B1120',
-                        'ink-soft': '#1E293B',
-                        line: '#E2E8F0',
+                        paper: '#FAFAF7',
+                        'paper-dim': '#F1EFE6',
+                        ink: '#111214',
+                        'ink-soft': '#43443F',
+                        signal: '#FF4D2E',
+                        'signal-dim': '#E6431F',
+                        sage: '#7C8B7F',
+                        line: '#E3E1D9',
+                        'line-strong': '#CFCCC0',
                     },
-                    boxShadow: {
-                        'glow-primary': '0 20px 60px -15px rgba(37, 99, 235, 0.35)',
-                        'glow-accent': '0 20px 60px -15px rgba(34, 211, 238, 0.3)',
-                    }
                 }
             }
         }
     </script>
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="text-gray-600 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-ink">
+<body class="font-sans antialiased overflow-x-hidden selection:bg-signal selection:text-paper">
 
     <!-- Boot Loader -->
     <div id="loader" aria-hidden="true">
-        <div class="loader-bracket font-mono">
-            <span>&lt;</span><span class="text-white">VL</span><span class="pulse-right">/&gt;</span>
-        </div>
+        <div class="loader-mark"><span class="dot"></span> vl.dev — loading</div>
     </div>
 
-    <!-- Skip link for keyboard/screen reader users -->
-    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+    <a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-ink focus:text-paper focus:px-4 focus:py-2">Skip to content</a>
 
-    <!-- Ambient Gradient Mesh Background -->
-    <div class="mesh-bg" aria-hidden="true">
-        <div class="mesh-blob mesh-blob-1"></div>
-        <div class="mesh-blob mesh-blob-2"></div>
-        <div class="mesh-blob mesh-blob-3"></div>
-    </div>
+    <!-- Baseline grid, extremely faint -->
+    <div class="grid-overlay" aria-hidden="true"></div>
 
-    <!-- Scroll Progress Bar -->
-    <div class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-primary to-accent z-[60] w-0 transition-none" id="scroll-progress" aria-hidden="true"></div>
+    <!-- Scroll Progress -->
+    <div class="fixed top-0 left-0 h-[2px] bg-signal z-[60] w-0" id="scroll-progress" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/70 backdrop-blur-md border-b border-transparent py-2">
-        <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-display font-bold text-ink tracking-tight flex items-center gap-0.5">
-                VL<span class="text-primary">.</span>
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-paper/80 backdrop-blur-sm border-b border-transparent">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#home" class="font-display text-2xl font-semibold text-ink tracking-tight">
+                VL<span class="text-signal">.</span>
             </a>
 
-            <!-- Desktop Nav -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link link-active text-sm font-medium text-ink-soft hover:text-primary transition-colors">Home</a>
-                <a href="#projects" class="nav-link text-sm font-medium text-ink-soft hover:text-primary transition-colors">Projects</a>
-                <a href="#services" class="nav-link text-sm font-medium text-ink-soft hover:text-primary transition-colors">Services</a>
-                <a href="#about" class="nav-link text-sm font-medium text-ink-soft hover:text-primary transition-colors">About</a>
-                <a href="#contact" class="nav-link text-sm font-medium text-ink-soft hover:text-primary transition-colors">Contact</a>
-                <a href="#contact" class="btn-magnetic px-5 py-2.5 bg-ink text-white text-sm font-semibold rounded-full hover:shadow-glow-primary transition-all hover:-translate-y-0.5">
-                    <span class="relative z-10">Hire Me</span>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="nav-link link-active font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors">Home</a>
+                <a href="#projects" class="nav-link font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors">Projects</a>
+                <a href="#services" class="nav-link font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors">Services</a>
+                <a href="#about" class="nav-link font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors">About</a>
+                <a href="#contact" class="nav-link font-mono text-xs uppercase tracking-wide text-ink-soft hover:text-ink transition-colors">Contact</a>
+                <a href="#contact" class="btn-primary px-5 py-2.5 bg-ink text-paper text-xs font-mono uppercase tracking-wide">
+                    Hire Me
                 </a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-btn" class="md:hidden text-ink p-2" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu"></i>
             </button>
         </div>
 
-        <!-- Mobile Nav -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-line absolute w-full">
-            <div class="flex flex-col px-6 py-4 space-y-4 shadow-xl">
-                <a href="#home" class="mobile-link text-base font-medium text-ink">Home</a>
-                <a href="#projects" class="mobile-link text-base font-medium text-ink">Projects</a>
-                <a href="#services" class="mobile-link text-base font-medium text-ink">Services</a>
-                <a href="#about" class="mobile-link text-base font-medium text-ink">About</a>
-                <a href="#contact" class="mobile-link text-base font-medium text-ink">Contact</a>
-                <a href="#contact" class="mobile-link inline-flex justify-center px-5 py-3 bg-ink text-white text-sm font-semibold rounded-full">Hire Me</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-paper border-t border-line absolute w-full max-h-[calc(100vh-64px)] overflow-y-auto">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#home" class="mobile-link font-mono text-sm uppercase tracking-wide text-ink">Home</a>
+                <a href="#projects" class="mobile-link font-mono text-sm uppercase tracking-wide text-ink">Projects</a>
+                <a href="#services" class="mobile-link font-mono text-sm uppercase tracking-wide text-ink">Services</a>
+                <a href="#about" class="mobile-link font-mono text-sm uppercase tracking-wide text-ink">About</a>
+                <a href="#contact" class="mobile-link font-mono text-sm uppercase tracking-wide text-ink">Contact</a>
+                <a href="#contact" class="mobile-link inline-flex justify-center px-5 py-3 bg-ink text-paper text-xs font-mono uppercase tracking-wide">Hire Me</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="pt-36 pb-20 md:pt-52 md:pb-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-8">
-            <div class="w-full md:w-1/2 reveal-left z-10">
-                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-blue-50 text-primary text-sm font-semibold mb-6 border border-blue-100">
-                    <span class="relative flex h-2 w-2 text-primary">
-                        <span class="pulse-dot absolute inline-flex h-full w-full rounded-full opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                    </span>
-                    <span>Available for new projects</span>
-                </div>
-                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-ink leading-[1.08] tracking-tight mb-6">
-                    Designing Websites That Make Businesses <span class="text-gradient">Stand Out.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-500 mb-8 leading-relaxed max-w-lg">
-                    I create premium, responsive websites with clean user experiences, modern interfaces, and high-performance frontend development for businesses and startups.
-                </p>
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="#projects" class="btn-magnetic px-8 py-4 bg-primary text-white rounded-full font-semibold shadow-glow-primary transition-all hover:-translate-y-1 flex items-center gap-2 group">
-                        <span class="relative z-10 flex items-center gap-2">View Projects <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></span>
-                    </a>
-                    <a href="#contact" class="px-8 py-4 bg-white text-ink rounded-full font-semibold border border-line hover:border-ink/30 transition-all hover:bg-surface">
-                        Contact Me
-                    </a>
+        <!-- Hero -->
+        <section id="home" class="pt-40 pb-24 md:pt-52 md:pb-32 px-6 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                <div class="lg:col-span-8 reveal-up">
+                    <div class="scope-badge inline-flex items-center gap-2 mb-8 text-xs uppercase tracking-wide text-ink-soft">
+                        <span class="relative flex h-1.5 w-1.5 text-signal">
+                            <span class="pulse-dot absolute inline-flex h-full w-full rounded-full opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-signal"></span>
+                        </span>
+                        Open for new work
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-semibold text-ink leading-[1.05] tracking-tight mb-8">
+                        Websites built with <span class="mark">clean code</span>, not templates.
+                    </h1>
+                    <p class="text-lg md:text-xl text-ink-soft leading-relaxed max-w-xl mb-10">
+                        I design and develop premium, responsive websites for businesses and startups — hand-written HTML, Tailwind, and vanilla JavaScript. No bloat, no page-builder plugins, just fast sites that load in under a second.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="#projects" class="btn-primary px-7 py-3.5 bg-ink text-paper font-mono text-sm uppercase tracking-wide flex items-center gap-2 group">
+                            View Projects <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#contact" class="btn-outline px-7 py-3.5 border border-ink text-ink font-mono text-sm uppercase tracking-wide">
+                            Contact
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Trust strip -->
-                <div class="flex items-center gap-6 mt-12 pt-8 border-t border-line">
-                    <div>
-                        <p class="font-display text-2xl font-bold text-ink">3+</p>
-                        <p class="text-xs text-gray-400 font-medium">Live Projects Shipped</p>
+                <div class="lg:col-span-4 reveal-right">
+                    <div class="buildlog border border-line-strong text-xs md:text-[13px] p-5">
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                            <span class="text-white/40">build.log</span>
+                            <span class="text-white/40">main</span>
+                        </div>
+                        <div id="buildlog-body" class="space-y-0.5" aria-hidden="true"></div>
                     </div>
-                    <div class="w-px h-8 bg-line"></div>
-                    <div>
-                        <p class="font-display text-2xl font-bold text-ink">100%</p>
-                        <p class="text-xs text-gray-400 font-medium">Responsive Builds</p>
-                    </div>
-                    <div class="w-px h-8 bg-line"></div>
-                    <div>
-                        <p class="font-display text-2xl font-bold text-ink">24/7</p>
-                        <p class="text-xs text-gray-400 font-medium">Passion for Learning</p>
-                    </div>
+                    <p class="annotation-tag text-ink-soft mt-4 pl-1">— every project ships through this exact pipeline</p>
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 relative h-[420px] md:h-[520px] reveal-right" id="hero-stage" style="perspective: 1200px;">
-                <!-- Floating Mockups Composition -->
-                <div class="absolute inset-0 flex items-center justify-center">
-
-                    <!-- Main Mockup: Live "typing" code editor -->
-                    <div data-tilt="5" class="editor-window absolute z-20 w-[92%] sm:w-4/5 bg-ink-soft rounded-xl shadow-2xl shadow-blue-900/20 border border-white/10 overflow-hidden float-anim transition-transform duration-300 ease-out" style="transform-style: preserve-3d;">
-                        <div class="h-8 bg-[#0F172A] border-b border-white/5 flex items-center px-4 gap-1.5">
-                            <div class="w-2.5 h-2.5 rounded-full bg-red-400/80"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-amber-400/80"></div>
-                            <div class="w-2.5 h-2.5 rounded-full bg-green-400/80"></div>
-                            <span class="ml-3 text-[11px] text-gray-500 font-mono">portfolio.build.js</span>
-                        </div>
-                        <div class="px-5 py-4 text-[13px] sm:text-sm leading-relaxed min-h-[220px] sm:min-h-[260px]" id="editor-body" aria-hidden="true">
-                            <!-- Populated live by script.js -->
-                        </div>
-                    </div>
-
-                    <!-- Secondary Mockup: Preview panel -->
-                    <div data-tilt="8" class="absolute z-10 w-3/5 right-0 bottom-0 sm:bottom-6 bg-white rounded-xl shadow-2xl shadow-blue-900/10 border border-line overflow-hidden float-anim-delayed translate-x-4 sm:translate-x-8 translate-y-6 sm:translate-y-8 transition-transform duration-300 ease-out" style="transform-style: preserve-3d;">
-                        <div class="h-6 bg-surface border-b border-line flex items-center px-3 gap-1.5">
-                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
-                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
-                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
-                        </div>
-                        <div class="h-40 sm:h-48 bg-gradient-to-tr from-blue-50 to-surface p-3 flex flex-col gap-2">
-                            <div class="h-3 w-2/3 rounded-full bg-white/80 border border-white"></div>
-                            <div class="h-3 w-1/2 rounded-full bg-white/60 border border-white"></div>
-                            <div class="flex-1 rounded-md border border-white/50 bg-white/50 backdrop-blur-sm mt-1"></div>
-                        </div>
-                    </div>
-
-                    <!-- Small floating badge -->
-                    <div class="absolute z-30 -top-2 left-2 sm:left-8 bg-white rounded-full shadow-lg border border-line px-3 py-2 flex items-center gap-2 float-anim" style="animation-delay: 1.2s;">
-                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                            <i data-lucide="check" class="w-3.5 h-3.5 text-green-600"></i>
-                        </div>
-                        <span class="text-xs font-semibold text-ink">Deployed</span>
-                    </div>
+            <!-- Trust strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-8 border-t border-line reveal-up">
+                <div>
+                    <p class="font-display text-3xl font-semibold text-ink"><span class="counter" data-target="3">0</span></p>
+                    <p class="text-xs text-ink-soft font-mono uppercase tracking-wide mt-1">Live projects</p>
+                </div>
+                <div>
+                    <p class="font-display text-3xl font-semibold text-ink"><span class="counter" data-target="100">0</span>%</p>
+                    <p class="text-xs text-ink-soft font-mono uppercase tracking-wide mt-1">Responsive</p>
+                </div>
+                <div>
+                    <p class="font-display text-3xl font-semibold text-ink"><span class="counter" data-target="95">0</span>+</p>
+                    <p class="text-xs text-ink-soft font-mono uppercase tracking-wide mt-1">Lighthouse score</p>
+                </div>
+                <div>
+                    <p class="font-display text-3xl font-semibold text-ink">Vanilla</p>
+                    <p class="text-xs text-ink-soft font-mono uppercase tracking-wide mt-1">No frameworks</p>
                 </div>
             </div>
         </section>
 
         <!-- Tech Stack Marquee -->
-        <section aria-label="Technologies" class="py-8 border-y border-line bg-surface/60">
+        <section aria-label="Technologies" class="py-8 border-y border-line bg-paper-dim/50">
+            <div class="max-w-6xl mx-auto px-6 mb-4 flex items-center gap-3">
+                <span class="font-mono text-[11px] uppercase tracking-wide text-ink-soft">Built with</span>
+                <span class="h-px flex-1 bg-line"></span>
+            </div>
             <div class="marquee-wrap marquee-fade overflow-hidden">
                 <div class="marquee-track">
-                    <div class="flex items-center gap-16 pr-16">
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">HTML5</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">CSS3</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">JavaScript</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Tailwind CSS</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Figma</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Responsive Design</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">UI/UX</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Frontend Development</span>
+                    <div class="flex items-center gap-14 pr-14">
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">HTML5</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">CSS3</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">JavaScript</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Tailwind CSS</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Figma</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Responsive Design</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">UI/UX</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Frontend Development</span>
                     </div>
-                    <div class="flex items-center gap-16 pr-16" aria-hidden="true">
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">HTML5</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">CSS3</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">JavaScript</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Tailwind CSS</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Figma</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Responsive Design</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">UI/UX</span>
-                        <span class="font-display font-semibold text-gray-400 text-lg tracking-wide">Frontend Development</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Statistics -->
-        <section id="stats" class="relative py-14 border-b border-line bg-surface/50 overflow-hidden">
-            <div class="dot-grid dot-grid-full" aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto px-6 relative">
-                <span class="section-index block text-center mb-6">01 / BY THE NUMBERS</span>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-line/70">
-                    <div class="text-center reveal-count">
-                        <h3 class="font-display text-4xl font-bold text-ink mb-1"><span class="counter" data-target="3">0</span>+</h3>
-                        <p class="text-sm font-medium text-gray-500">Featured Projects</p>
-                    </div>
-                    <div class="text-center reveal-count">
-                        <h3 class="font-display text-4xl font-bold text-ink mb-1"><span class="counter" data-target="100">0</span>%</h3>
-                        <p class="text-sm font-medium text-gray-500">Responsive Design</p>
-                    </div>
-                    <div class="text-center reveal-count">
-                        <h3 class="font-display text-4xl font-bold text-ink mb-1"><span class="counter" data-target="95">0</span>+</h3>
-                        <p class="text-sm font-medium text-gray-500">Performance Score</p>
-                    </div>
-                    <div class="text-center reveal-count">
-                        <h3 class="font-display text-4xl font-bold text-ink mb-1">24/7</h3>
-                        <p class="text-sm font-medium text-gray-500">Passion for Learning</p>
+                    <div class="flex items-center gap-14 pr-14" aria-hidden="true">
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">HTML5</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">CSS3</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">JavaScript</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Tailwind CSS</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Figma</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Responsive Design</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">UI/UX</span>
+                        <span class="font-mono text-sm text-ink-soft tracking-wide">Frontend Development</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Featured Projects -->
-        <section id="projects" class="relative py-24 md:py-32 max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12 reveal-up">
-                <span class="section-index block mb-3">02 / SELECTED WORK</span>
-                <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">Projects Built to Ship</h2>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto">A showcase of premium websites crafted with precision, focusing on design aesthetics and robust frontend architecture.</p>
+        <section id="projects" class="py-20 md:py-28 max-w-6xl mx-auto px-6">
+            <div class="mb-12 reveal-up">
+                <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">Selected Work</span>
+                <h2 class="font-display text-4xl md:text-5xl font-semibold text-ink mb-5 max-w-2xl">Projects built to ship</h2>
+                <p class="text-lg text-ink-soft max-w-xl">A showcase of premium websites crafted with precision — real live builds, not mockups.</p>
             </div>
 
             <!-- Filter Pills -->
-            <div class="flex flex-wrap justify-center gap-3 mb-16 reveal-up">
-                <button class="filter-pill active px-5 py-2 rounded-full text-sm font-semibold border border-line bg-white text-ink-soft" data-filter="all">All Work</button>
-                <button class="filter-pill px-5 py-2 rounded-full text-sm font-semibold border border-line bg-white text-ink-soft" data-filter="platform">Platforms</button>
-                <button class="filter-pill px-5 py-2 rounded-full text-sm font-semibold border border-line bg-white text-ink-soft" data-filter="healthcare">Healthcare</button>
-                <button class="filter-pill px-5 py-2 rounded-full text-sm font-semibold border border-line bg-white text-ink-soft" data-filter="real-estate">Real Estate</button>
+            <div class="flex flex-wrap gap-2 mb-4 reveal-up">
+                <button class="filter-pill active px-4 py-1.5 text-xs font-mono uppercase tracking-wide border border-ink bg-ink text-paper" data-filter="all">All Work</button>
+                <button class="filter-pill px-4 py-1.5 text-xs font-mono uppercase tracking-wide border border-line text-ink-soft hover:border-ink transition-colors" data-filter="platform">Platforms</button>
+                <button class="filter-pill px-4 py-1.5 text-xs font-mono uppercase tracking-wide border border-line text-ink-soft hover:border-ink transition-colors" data-filter="healthcare">Healthcare</button>
+                <button class="filter-pill px-4 py-1.5 text-xs font-mono uppercase tracking-wide border border-line text-ink-soft hover:border-ink transition-colors" data-filter="real-estate">Real Estate</button>
             </div>
 
-            <div class="space-y-24">
+            <div class="border-t border-line">
                 <!-- Project 1 -->
-                <article data-category="platform" class="flex flex-col md:flex-row gap-10 items-center reveal-clip group">
-                    <div class="project-card w-full md:w-3/5 rounded-2xl overflow-hidden shadow-xl bg-surface border border-line relative group-hover:shadow-2xl group-hover:shadow-blue-900/10 group-hover:-translate-y-1">
-                        <!-- Browser Chrome -->
-                        <div class="h-9 bg-gray-50 border-b border-line flex items-center px-4 gap-2">
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                            <span class="ml-3 font-mono text-[11px] text-gray-400 truncate">novaflow-ai-tan.vercel.app</span>
-                        </div>
-                        <div class="aspect-video bg-ink overflow-hidden relative">
-                            <img src="1.png" alt="NovaFlow AI project preview" class="w-full h-full object-cover transform group-hover:scale-[1.04] transition-transform duration-700 ease-out" loading="lazy" width="1200" height="720">
-                            <div class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent pointer-events-none"></div>
-                        </div>
+                <article data-category="platform" class="project-row hairline grid grid-cols-1 md:grid-cols-12 gap-8 py-10 px-2 -mx-2 reveal-up group">
+                    <div class="md:col-span-2">
+                        <span class="font-mono text-xs text-signal uppercase tracking-wide">Platform</span>
                     </div>
-                    <div class="w-full md:w-2/5">
-                        <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">AI Workflow Platform</span>
-                        <h3 class="font-display text-3xl font-bold text-ink mb-4">NovaFlow AI</h3>
-                        <p class="text-gray-500 mb-6 leading-relaxed">A cutting-edge platform for automating workflows using artificial intelligence. Features a modern dashboard, glassmorphic UI elements, and seamless API integrations.</p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">HTML5</span>
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">JavaScript</span>
+                    <div class="md:col-span-4 frame-shot overflow-hidden">
+                        <img src="1.png" alt="NovaFlow AI project preview" class="w-full h-full object-cover aspect-video" loading="lazy" width="1200" height="720" onerror="this.closest('.frame-shot').classList.add('img-fallback'); this.remove();">
+                    </div>
+                    <div class="md:col-span-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-semibold text-ink mb-3">NovaFlow AI</h3>
+                        <p class="text-ink-soft mb-5 leading-relaxed max-w-md">A platform for automating workflows using artificial intelligence. Modern dashboard, glassmorphic UI elements, seamless API integrations.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">HTML5</span>
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">JavaScript</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://novaflow-ai-tan.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-magnetic px-6 py-2.5 bg-ink text-white rounded-full text-sm font-semibold hover:shadow-glow-primary transition-all flex items-center gap-2">
-                                <span class="relative z-10 flex items-center gap-2">Live Demo <i data-lucide="external-link" class="w-4 h-4"></i></span>
-                            </a>
-                            <a href="#" class="px-6 py-2.5 bg-white border border-line text-ink rounded-full text-sm font-semibold hover:bg-surface hover:border-ink/20 transition-colors flex items-center gap-2">
-                                Source Code <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.02 2.81-.02 3.19 0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                        <div class="flex gap-6 items-center">
+                            <a href="https://novaflow-ai-tan.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-ink uppercase tracking-wide border-b border-ink pb-0.5 hover:text-signal hover:border-signal transition-colors flex items-center gap-1.5">
+                                Live Demo <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                             </a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 2 -->
-                <article data-category="healthcare" class="flex flex-col md:flex-row-reverse gap-10 items-center reveal-clip group">
-                    <div class="project-card w-full md:w-3/5 rounded-2xl overflow-hidden shadow-xl bg-surface border border-line relative group-hover:shadow-2xl group-hover:shadow-blue-900/10 group-hover:-translate-y-1">
-                        <!-- Browser Chrome -->
-                        <div class="h-9 bg-gray-50 border-b border-line flex items-center px-4 gap-2">
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                            <span class="ml-3 font-mono text-[11px] text-gray-400 truncate">luxedent-dental-clinic.vercel.app</span>
-                        </div>
-                        <div class="aspect-video bg-ink overflow-hidden relative">
-                            <img src="2.png" alt="Luxedent Dental Clinic project preview" class="w-full h-full object-cover transform group-hover:scale-[1.04] transition-transform duration-700 ease-out" loading="lazy" width="1200" height="720">
-                            <div class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent pointer-events-none"></div>
-                        </div>
+                <article data-category="healthcare" class="project-row hairline grid grid-cols-1 md:grid-cols-12 gap-8 py-10 px-2 -mx-2 reveal-up group">
+                    <div class="md:col-span-2">
+                        <span class="font-mono text-xs text-signal uppercase tracking-wide">Healthcare</span>
                     </div>
-                    <div class="w-full md:w-2/5">
-                        <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">Healthcare Web Design</span>
-                        <h3 class="font-display text-3xl font-bold text-ink mb-4">Luxedent Dental Clinic</h3>
-                        <p class="text-gray-500 mb-6 leading-relaxed">A premium, trustworthy online presence for a high-end dental clinic. Focuses on accessibility, fast load times, and an intuitive appointment booking flow.</p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">UI/UX</span>
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">Tailwind CSS</span>
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">Vanilla JS</span>
+                    <div class="md:col-span-4 frame-shot overflow-hidden">
+                        <img src="2.png" alt="Luxedent Dental Clinic project preview" class="w-full h-full object-cover aspect-video" loading="lazy" width="1200" height="720" onerror="this.closest('.frame-shot').classList.add('img-fallback'); this.remove();">
+                    </div>
+                    <div class="md:col-span-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-semibold text-ink mb-3">Luxedent Dental Clinic</h3>
+                        <p class="text-ink-soft mb-5 leading-relaxed max-w-md">A premium, trustworthy online presence for a high-end dental clinic. Focused on accessibility, fast load times, and an intuitive booking flow.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">UI/UX</span>
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">Vanilla JS</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://luxedent-dental-clinic.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-magnetic px-6 py-2.5 bg-ink text-white rounded-full text-sm font-semibold hover:shadow-glow-primary transition-all flex items-center gap-2">
-                                <span class="relative z-10 flex items-center gap-2">Live Demo <i data-lucide="external-link" class="w-4 h-4"></i></span>
-                            </a>
-                            <a href="#" class="px-6 py-2.5 bg-white border border-line text-ink rounded-full text-sm font-semibold hover:bg-surface hover:border-ink/20 transition-colors flex items-center gap-2">
-                                Source Code <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.02 2.81-.02 3.19 0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                        <div class="flex gap-6 items-center">
+                            <a href="https://luxedent-dental-clinic.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-ink uppercase tracking-wide border-b border-ink pb-0.5 hover:text-signal hover:border-signal transition-colors flex items-center gap-1.5">
+                                Live Demo <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                             </a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 3 -->
-                <article data-category="real-estate" class="flex flex-col md:flex-row gap-10 items-center reveal-clip group">
-                    <div class="project-card w-full md:w-3/5 rounded-2xl overflow-hidden shadow-xl bg-surface border border-line relative group-hover:shadow-2xl group-hover:shadow-blue-900/10 group-hover:-translate-y-1">
-                        <!-- Browser Chrome -->
-                        <div class="h-9 bg-gray-50 border-b border-line flex items-center px-4 gap-2">
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div><div class="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
-                            <span class="ml-3 font-mono text-[11px] text-gray-400 truncate">aurelia-estates-pi.vercel.app</span>
-                        </div>
-                        <div class="aspect-video bg-ink overflow-hidden relative">
-                            <img src="3.png" alt="Aurelia Estates project preview" class="w-full h-full object-cover transform group-hover:scale-[1.04] transition-transform duration-700 ease-out" loading="lazy" width="1200" height="720">
-                            <div class="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent pointer-events-none"></div>
-                        </div>
+                <article data-category="real-estate" class="project-row hairline grid grid-cols-1 md:grid-cols-12 gap-8 py-10 px-2 -mx-2 reveal-up group">
+                    <div class="md:col-span-2">
+                        <span class="font-mono text-xs text-signal uppercase tracking-wide">Real Estate</span>
                     </div>
-                    <div class="w-full md:w-2/5">
-                        <span class="text-primary text-sm font-bold tracking-wider uppercase mb-2 block">Real Estate Platform</span>
-                        <h3 class="font-display text-3xl font-bold text-ink mb-4">Aurelia Estates</h3>
-                        <p class="text-gray-500 mb-6 leading-relaxed">An elegant property listing website for luxury real estate. Features high-quality image galleries, complex search filtering, and smooth page transitions.</p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">Responsive Design</span>
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">Frontend Dev</span>
-                            <span class="px-3 py-1 bg-surface border border-line rounded-full text-xs font-semibold text-ink font-mono">Performance</span>
+                    <div class="md:col-span-4 frame-shot overflow-hidden">
+                        <img src="3.png" alt="Aurelia Estates project preview" class="w-full h-full object-cover aspect-video" loading="lazy" width="1200" height="720" onerror="this.closest('.frame-shot').classList.add('img-fallback'); this.remove();">
+                    </div>
+                    <div class="md:col-span-6">
+                        <h3 class="font-display text-2xl md:text-3xl font-semibold text-ink mb-3">Aurelia Estates</h3>
+                        <p class="text-ink-soft mb-5 leading-relaxed max-w-md">An elegant property listing website for luxury real estate. High-quality image galleries, complex search filtering, smooth page transitions.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">Responsive Design</span>
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">Frontend Dev</span>
+                            <span class="px-2.5 py-1 border border-line text-xs font-mono text-ink-soft">Performance</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="https://aurelia-estates-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-magnetic px-6 py-2.5 bg-ink text-white rounded-full text-sm font-semibold hover:shadow-glow-primary transition-all flex items-center gap-2">
-                                <span class="relative z-10 flex items-center gap-2">Live Demo <i data-lucide="external-link" class="w-4 h-4"></i></span>
-                            </a>
-                            <a href="#" class="px-6 py-2.5 bg-white border border-line text-ink rounded-full text-sm font-semibold hover:bg-surface hover:border-ink/20 transition-colors flex items-center gap-2">
-                                Source Code <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.02 2.81-.02 3.19 0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                        <div class="flex gap-6 items-center">
+                            <a href="https://aurelia-estates-pi.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-ink uppercase tracking-wide border-b border-ink pb-0.5 hover:text-signal hover:border-signal transition-colors flex items-center gap-1.5">
+                                Live Demo <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                             </a>
                         </div>
                     </div>
@@ -373,255 +281,202 @@
         </section>
 
         <!-- Services -->
-        <section id="services" class="relative py-24 md:py-32 bg-surface border-y border-line overflow-hidden">
-            <div class="hatch-texture" aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto px-6 relative">
-                <div class="text-center mb-16 reveal-up">
-                    <span class="section-index block mb-3">03 / WHAT I OFFER</span>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">Services</h2>
-                    <p class="text-lg text-gray-500 max-w-2xl mx-auto">Comprehensive digital solutions designed to elevate your brand and drive results.</p>
+        <section id="services" class="py-20 md:py-28 bg-ink text-paper relative overflow-hidden">
+            <div class="grain-overlay"></div>
+            <div class="max-w-6xl mx-auto px-6 relative">
+                <div class="mb-12 reveal-up">
+                    <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">What I Offer</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-semibold mb-5 max-w-2xl">Services</h2>
+                    <p class="text-lg text-white/60 max-w-xl">Comprehensive digital solutions designed to elevate your brand and drive results.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Service Card -->
-                    <div class="glow-card tilt-card p-8 bg-white rounded-2xl border border-line shadow-sm hover:shadow-xl hover:shadow-blue-900/5 duration-300 reveal-pop group">
-                        <div class="service-icon-wrap w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="monitor" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-ink mb-3">Responsive Business Websites</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Custom-built websites that look flawless on desktops, tablets, and mobile devices.</p>
-                    </div>
-                    <!-- Service Card -->
-                    <div class="glow-card tilt-card p-8 bg-white rounded-2xl border border-line shadow-sm hover:shadow-xl hover:shadow-blue-900/5 duration-300 reveal-pop group">
-                        <div class="service-icon-wrap w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="layout-template" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-ink mb-3">Landing Pages</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">High-converting landing pages optimized for marketing campaigns and product launches.</p>
-                    </div>
-                    <!-- Service Card -->
-                    <div class="glow-card tilt-card p-8 bg-white rounded-2xl border border-line shadow-sm hover:shadow-xl hover:shadow-blue-900/5 duration-300 reveal-pop group">
-                        <div class="service-icon-wrap w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-ink mb-3">Website Redesign</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Modernizing outdated websites to improve user experience, aesthetics, and performance.</p>
-                    </div>
-                    <!-- Service Card -->
-                    <div class="glow-card tilt-card p-8 bg-white rounded-2xl border border-line shadow-sm hover:shadow-xl hover:shadow-blue-900/5 duration-300 reveal-pop group">
-                        <div class="service-icon-wrap w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="briefcase" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-ink mb-3">Portfolio Websites</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Showcase your work with stunning, bespoke portfolio designs tailored to your niche.</p>
-                    </div>
-                    <!-- Service Card -->
-                    <div class="glow-card tilt-card p-8 bg-white rounded-2xl border border-line shadow-sm hover:shadow-xl hover:shadow-blue-900/5 duration-300 reveal-pop group">
-                        <div class="service-icon-wrap w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="code-2" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-ink mb-3">Frontend Development</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Clean, semantic HTML, CSS, and JavaScript to bring complex UI/UX designs to life.</p>
-                    </div>
-                    <!-- Service Card: closing CTA tile -->
-                    <div class="p-8 bg-ink rounded-2xl shadow-sm reveal-pop group flex flex-col justify-between">
-                        <div>
-                            <div class="w-12 h-12 bg-white/10 text-accent rounded-xl flex items-center justify-center mb-6">
-                                <i data-lucide="message-circle" class="w-6 h-6"></i>
-                            </div>
-                            <h3 class="font-display text-xl font-bold text-white mb-3">Something Else in Mind?</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Every project is different. Let's talk about what you actually need.</p>
-                        </div>
-                        <a href="#contact" class="inline-flex items-center gap-2 text-accent text-sm font-semibold hover:gap-3 transition-all">Start a conversation <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                    </div>
+                <div class="border-t border-white/10">
+                    <a href="#contact" class="service-row group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center py-7 reveal-up" style="border-color: rgba(255,255,255,0.1);">
+                        <span class="service-index md:col-span-1 text-sm">→</span>
+                        <h3 class="md:col-span-4 font-display text-xl md:text-2xl font-semibold">Responsive Business Websites</h3>
+                        <p class="md:col-span-6 text-white/50 text-sm leading-relaxed">Custom-built websites that look flawless on desktops, tablets, and mobile devices.</p>
+                        <i data-lucide="arrow-up-right" class="md:col-span-1 w-5 h-5 text-white/30 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all justify-self-end"></i>
+                    </a>
+                    <a href="#contact" class="service-row group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center py-7 reveal-up" style="border-color: rgba(255,255,255,0.1);">
+                        <span class="service-index md:col-span-1 text-sm">→</span>
+                        <h3 class="md:col-span-4 font-display text-xl md:text-2xl font-semibold">Landing Pages</h3>
+                        <p class="md:col-span-6 text-white/50 text-sm leading-relaxed">High-converting landing pages optimized for marketing campaigns and product launches.</p>
+                        <i data-lucide="arrow-up-right" class="md:col-span-1 w-5 h-5 text-white/30 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all justify-self-end"></i>
+                    </a>
+                    <a href="#contact" class="service-row group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center py-7 reveal-up" style="border-color: rgba(255,255,255,0.1);">
+                        <span class="service-index md:col-span-1 text-sm">→</span>
+                        <h3 class="md:col-span-4 font-display text-xl md:text-2xl font-semibold">Website Redesign</h3>
+                        <p class="md:col-span-6 text-white/50 text-sm leading-relaxed">Modernizing outdated websites to improve user experience, aesthetics, and performance.</p>
+                        <i data-lucide="arrow-up-right" class="md:col-span-1 w-5 h-5 text-white/30 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all justify-self-end"></i>
+                    </a>
+                    <a href="#contact" class="service-row group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center py-7 reveal-up" style="border-color: rgba(255,255,255,0.1);">
+                        <span class="service-index md:col-span-1 text-sm">→</span>
+                        <h3 class="md:col-span-4 font-display text-xl md:text-2xl font-semibold">Portfolio Websites</h3>
+                        <p class="md:col-span-6 text-white/50 text-sm leading-relaxed">Showcase your work with stunning, bespoke portfolio designs tailored to your niche.</p>
+                        <i data-lucide="arrow-up-right" class="md:col-span-1 w-5 h-5 text-white/30 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all justify-self-end"></i>
+                    </a>
+                    <a href="#contact" class="service-row group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center py-7 reveal-up" style="border-color: rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <span class="service-index md:col-span-1 text-sm">→</span>
+                        <h3 class="md:col-span-4 font-display text-xl md:text-2xl font-semibold">Frontend Development</h3>
+                        <p class="md:col-span-6 text-white/50 text-sm leading-relaxed">Clean, semantic HTML, CSS, and JavaScript to bring complex UI/UX designs to life.</p>
+                        <i data-lucide="arrow-up-right" class="md:col-span-1 w-5 h-5 text-white/30 group-hover:text-signal group-hover:translate-x-1 group-hover:-translate-y-1 transition-all justify-self-end"></i>
+                    </a>
+                </div>
+
+                <div class="mt-12 reveal-up">
+                    <a href="#contact" class="inline-flex items-center gap-2 font-mono text-sm uppercase tracking-wide text-signal border-b border-signal pb-1 hover:gap-3 transition-all">
+                        Something else in mind? Let's talk <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Why Work With Me -->
-        <section class="relative py-24 md:py-32 max-w-7xl mx-auto px-6 overflow-hidden">
-            <div class="dot-grid" aria-hidden="true" style="right:0; left:auto; width:50%;"></div>
-            <div class="flex flex-col lg:flex-row gap-16 items-center relative">
-                <div class="w-full lg:w-1/2 reveal-left">
-                    <span class="section-index block mb-3">04 / THE DIFFERENCE</span>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-6">Why Work With Me</h2>
-                    <p class="text-lg text-gray-500 mb-8">I don't just build websites; I craft digital experiences that align with your business goals. Quality, performance, and attention to detail are at the core of everything I do.</p>
-
-                    <ul class="space-y-4">
-                        <li class="reveal-step flex items-center gap-3 text-ink font-medium">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div> Premium UI/UX
-                        </li>
-                        <li class="reveal-step flex items-center gap-3 text-ink font-medium">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div> Responsive Design
-                        </li>
-                        <li class="reveal-step flex items-center gap-3 text-ink font-medium">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div> Clean Code
-                        </li>
-                        <li class="reveal-step flex items-center gap-3 text-ink font-medium">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div> Performance Focused
-                        </li>
-                        <li class="reveal-step flex items-center gap-3 text-ink font-medium">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div> SEO-Friendly Structure
-                        </li>
-                        <li class="reveal-step flex items-center gap-3 text-ink font-medium">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div> Modern Development Standards
-                        </li>
-                        <li class="reveal-step flex items-center gap-3 text-ink font-medium">
-                            <div class="w-6 h-6 rounded-full bg-blue-100 text-primary flex items-center justify-center shrink-0"><i data-lucide="check" class="w-4 h-4"></i></div> Attention to Detail
-                        </li>
-                    </ul>
+        <section class="py-20 md:py-28 max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+                <div class="lg:col-span-5 reveal-left">
+                    <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">The Difference</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-semibold text-ink mb-6">Why work with me</h2>
+                    <p class="text-lg text-ink-soft leading-relaxed">I don't just build websites; I craft digital experiences that align with your business goals. Quality, performance, and attention to detail are at the core of everything I do.</p>
                 </div>
 
-                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 reveal-right">
-                    <div class="space-y-4 mt-8">
-                        <div class="tilt-card bg-surface rounded-2xl p-6 aspect-square flex flex-col justify-center border border-line shadow-sm">
-                            <h4 class="font-display text-4xl font-bold text-primary mb-2">99%</h4>
-                            <p class="text-sm font-medium text-gray-500">Client Satisfaction</p>
-                        </div>
-                        <div class="tilt-card bg-ink rounded-2xl p-6 aspect-square flex flex-col justify-center shadow-lg text-white">
-                            <i data-lucide="zap" class="w-8 h-8 text-accent mb-4"></i>
-                            <h4 class="font-display text-xl font-bold mb-2">Lightning Fast</h4>
-                            <p class="text-xs text-gray-300">Optimized for sub-second load times.</p>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="tilt-card bg-white border border-line rounded-2xl p-6 aspect-square flex flex-col justify-center shadow-sm">
-                            <i data-lucide="smartphone" class="w-8 h-8 text-primary mb-4"></i>
-                            <h4 class="font-display text-xl font-bold mb-2 text-ink">Mobile First</h4>
-                            <p class="text-xs text-gray-500">Flawless on every device.</p>
-                        </div>
-                        <div class="tilt-card bg-surface rounded-2xl p-6 aspect-square flex flex-col justify-center border border-line shadow-sm">
-                            <h4 class="font-display text-4xl font-bold text-primary mb-2">100%</h4>
-                            <p class="text-sm font-medium text-gray-500">Pixel Perfect</p>
-                        </div>
-                    </div>
+                <div class="lg:col-span-7">
+                    <ul class="border-t border-line">
+                        <li class="reveal-up hairline py-5">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="text-ink font-medium">No page builders</span>
+                                <i data-lucide="check" class="w-4 h-4 text-signal mt-1 shrink-0"></i>
+                            </div>
+                            <p class="text-ink-soft text-sm mt-1">Every line of HTML, CSS, and JS is hand-written — nothing generated by WordPress, Wix, or Webflow.</p>
+                        </li>
+                        <li class="reveal-up hairline py-5">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="text-ink font-medium">Sub-second load times</span>
+                                <i data-lucide="check" class="w-4 h-4 text-signal mt-1 shrink-0"></i>
+                            </div>
+                            <p class="text-ink-soft text-sm mt-1">No framework overhead or bundled dependencies you don't need — just lean, direct code.</p>
+                        </li>
+                        <li class="reveal-up hairline py-5">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="text-ink font-medium">Built mobile-first</span>
+                                <i data-lucide="check" class="w-4 h-4 text-signal mt-1 shrink-0"></i>
+                            </div>
+                            <p class="text-ink-soft text-sm mt-1">Designed for the smallest screen first, then scaled up — not squeezed down from desktop as an afterthought.</p>
+                        </li>
+                        <li class="reveal-up hairline py-5" style="border-bottom: 1px solid var(--line);">
+                            <div class="flex items-start justify-between gap-4">
+                                <span class="text-ink font-medium">Direct communication</span>
+                                <i data-lucide="check" class="w-4 h-4 text-signal mt-1 shrink-0"></i>
+                            </div>
+                            <p class="text-ink-soft text-sm mt-1">You work with the person writing the code, not an account manager relaying messages.</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-24 md:py-32 bg-ink text-white relative overflow-hidden">
-            <div class="grain-overlay"></div>
-            <div class="dot-grid dot-grid-full" style="opacity: 0.35;" aria-hidden="true"></div>
-            <div class="max-w-3xl mx-auto px-6 relative">
-                <div class="reveal-focus">
-                    <span class="section-index block mb-3" style="color:#64748B;">05 / GET TO KNOW ME</span>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+        <!-- About -->
+        <section id="about" class="py-20 md:py-28 border-t border-b border-line">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="reveal-up">
+                    <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">Get to Know Me</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-semibold text-ink mb-8">About me</h2>
+                    <p class="text-lg md:text-xl text-ink-soft leading-relaxed mb-10">
                         I am a Computer Science student with a passion for creating modern, responsive, and visually engaging websites. I enjoy transforming ideas into clean digital experiences that combine aesthetics, usability, and performance. My focus is building websites that not only look professional but also provide a smooth experience across all devices.
                     </p>
 
-                    <div class="mb-8 border-l-2 border-primary pl-4">
-                        <h4 class="text-lg font-bold mb-1">Bachelor of Science in Computer Science</h4>
-                        <p class="text-gray-400 text-sm">(Current) | Science, Technology, Engineering and Mathematics (STEM)</p>
+                    <div class="mb-10 pl-5 border-l-2 border-signal">
+                        <h4 class="font-display text-lg font-semibold text-ink mb-1">Bachelor of Science in Computer Science</h4>
+                        <p class="text-ink-soft text-sm font-mono">(Current) — Science, Technology, Engineering and Mathematics (STEM)</p>
                     </div>
 
-                    <h4 class="text-sm uppercase tracking-wider font-bold text-gray-400 mb-4 font-mono">Skills</h4>
+                    <h4 class="text-xs uppercase tracking-wide font-mono text-ink-soft mb-4">Skills</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">HTML</span>
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">CSS</span>
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">JavaScript</span>
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">Tailwind CSS</span>
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">Figma</span>
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">Responsive Design</span>
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">UI/UX</span>
-                        <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm font-medium">Frontend Development</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">HTML</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">CSS</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">JavaScript</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">Tailwind CSS</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">Figma</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">Responsive Design</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">UI/UX</span>
+                        <span class="px-3 py-1.5 border border-line text-sm font-mono text-ink-soft">Frontend Development</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Workflow -->
-        <section class="relative py-24 md:py-32 max-w-7xl mx-auto px-6 border-b border-line overflow-hidden">
-            <div class="text-center mb-16 reveal-up">
-                <span class="section-index block mb-3">06 / PROCESS</span>
-                <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">Workflow</h2>
-                <p class="text-lg text-gray-500 max-w-2xl mx-auto">A streamlined process ensuring transparency and high-quality results.</p>
+        <section class="py-20 md:py-28 max-w-6xl mx-auto px-6">
+            <div class="mb-12 reveal-up">
+                <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">Process</span>
+                <h2 class="font-display text-4xl md:text-5xl font-semibold text-ink mb-5">How a project runs</h2>
+                <p class="text-lg text-ink-soft max-w-xl">Four stages, start to finish — the same sequence every time, so you always know what's next.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-                <!-- Decorative Line -->
-                <div class="hidden md:block absolute top-[26px] left-0 w-full h-[1px] bg-line -z-10"></div>
-
-                <!-- Step 1 -->
-                <div class="tilt-card corner-brackets bg-white p-8 rounded-2xl border border-line shadow-sm text-center reveal-step">
-                    <div class="step-num w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-glow-primary">1</div>
-                    <h3 class="font-display text-xl font-bold text-ink mb-2">Planning</h3>
-                    <p class="text-sm text-gray-500">Understanding your goals, target audience, and technical requirements.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-px bg-line border border-line">
+                <div class="workflow-step bg-paper p-8 reveal-up">
+                    <div class="step-num w-10 h-10 flex items-center justify-center text-sm mb-8">01</div>
+                    <h3 class="font-display text-xl font-semibold text-ink mb-2">Planning</h3>
+                    <p class="text-sm text-ink-soft">Understanding your goals, target audience, and technical requirements.</p>
                 </div>
-                <!-- Step 2 -->
-                <div class="tilt-card corner-brackets bg-white p-8 rounded-2xl border border-line shadow-sm text-center reveal-step">
-                    <div class="step-num w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-glow-primary">2</div>
-                    <h3 class="font-display text-xl font-bold text-ink mb-2">Design</h3>
-                    <p class="text-sm text-gray-500">Creating wireframes and high-fidelity UI/UX mockups in Figma.</p>
+                <div class="workflow-step bg-paper p-8 reveal-up">
+                    <div class="step-num w-10 h-10 flex items-center justify-center text-sm mb-8">02</div>
+                    <h3 class="font-display text-xl font-semibold text-ink mb-2">Design</h3>
+                    <p class="text-sm text-ink-soft">Creating wireframes and high-fidelity UI/UX mockups in Figma.</p>
                 </div>
-                <!-- Step 3 -->
-                <div class="tilt-card corner-brackets bg-white p-8 rounded-2xl border border-line shadow-sm text-center reveal-step">
-                    <div class="step-num w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-glow-primary">3</div>
-                    <h3 class="font-display text-xl font-bold text-ink mb-2">Development</h3>
-                    <p class="text-sm text-gray-500">Writing clean, responsive, and performance-optimized code.</p>
+                <div class="workflow-step bg-paper p-8 reveal-up">
+                    <div class="step-num w-10 h-10 flex items-center justify-center text-sm mb-8">03</div>
+                    <h3 class="font-display text-xl font-semibold text-ink mb-2">Development</h3>
+                    <p class="text-sm text-ink-soft">Writing clean, responsive, and performance-optimized code.</p>
                 </div>
-                <!-- Step 4 -->
-                <div class="tilt-card corner-brackets bg-white p-8 rounded-2xl border border-line shadow-sm text-center reveal-step">
-                    <div class="step-num w-12 h-12 mx-auto bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-glow-primary">4</div>
-                    <h3 class="font-display text-xl font-bold text-ink mb-2">Delivery</h3>
-                    <p class="text-sm text-gray-500">Testing, deployment, and handing over a polished final product.</p>
+                <div class="workflow-step bg-paper p-8 reveal-up">
+                    <div class="step-num w-10 h-10 flex items-center justify-center text-sm mb-8">04</div>
+                    <h3 class="font-display text-xl font-semibold text-ink mb-2">Delivery</h3>
+                    <p class="text-sm text-ink-soft">Testing, deployment, and handing over a polished final product.</p>
                 </div>
             </div>
         </section>
 
         <!-- Testimonials -->
-        <section class="relative py-24 md:py-32 bg-surface overflow-hidden">
-            <div class="dot-grid dot-grid-full" aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto px-6 relative">
-                <div class="text-center mb-16 reveal-up">
-                    <span class="section-index block mb-3">07 / TESTIMONIALS</span>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">Client Feedback</h2>
-                    <p class="text-lg text-gray-500 max-w-2xl mx-auto">Hear what businesses have to say about our collaboration.</p>
-                    <span class="inline-block mt-4 font-mono text-[11px] tracking-wide text-gray-400 bg-white border border-line rounded-full px-3 py-1">Sample feedback for illustration</span>
+        <section class="py-20 md:py-28 border-t border-line">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-12 reveal-up flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">Testimonials</span>
+                        <h2 class="font-display text-4xl md:text-5xl font-semibold text-ink">Client feedback</h2>
+                    </div>
+                    <span class="font-mono text-xs text-ink-soft border border-line px-3 py-1.5">Sample feedback for illustration</span>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Review 1 -->
-                    <div class="tilt-card bg-white p-8 rounded-2xl shadow-sm border border-line reveal-flip">
-                        <div class="flex text-amber-400 mb-4">
-                            <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-line border border-line items-stretch">
+                    <div class="bg-paper p-8 reveal-up flex flex-col h-full">
+                        <div class="flex text-signal mb-5 gap-0.5">
+                            <i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i>
                         </div>
-                        <p class="text-gray-600 mb-6 italic">"Exceptional work! The attention to detail and smooth animations completely transformed our landing page. Highly recommend for any premium web design needs."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-white shadow-sm overflow-hidden"><div class="w-full h-full bg-blue-100"></div></div>
-                            <div>
-                                <h5 class="text-ink font-bold text-sm">S. J.</h5>
-                                <p class="text-gray-400 text-xs">CEO, TechStart</p>
-                            </div>
+                        <p class="text-ink-soft mb-6 leading-relaxed">"Exceptional work! The attention to detail and smooth animations completely transformed our landing page. Highly recommend for any premium web design needs."</p>
+                        <div class="mt-auto pt-4 border-t border-line">
+                            <h5 class="text-ink font-mono text-sm font-semibold">S. J.</h5>
+                            <p class="text-ink-soft text-xs">CEO, TechStart</p>
                         </div>
                     </div>
-                    <!-- Review 2 -->
-                    <div class="tilt-card bg-white p-8 rounded-2xl shadow-sm border border-line reveal-flip">
-                        <div class="flex text-amber-400 mb-4">
-                            <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    <div class="bg-paper p-8 reveal-up flex flex-col h-full">
+                        <div class="flex text-signal mb-5 gap-0.5">
+                            <i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i>
                         </div>
-                        <p class="text-gray-600 mb-6 italic">"Delivered exactly what was promised and then some. The responsive design works flawlessly across all devices, and the code is incredibly clean."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-white shadow-sm overflow-hidden"><div class="w-full h-full bg-teal-100"></div></div>
-                            <div>
-                                <h5 class="text-ink font-bold text-sm">M. C.</h5>
-                                <p class="text-gray-400 text-xs">Founder, Studio Eight</p>
-                            </div>
+                        <p class="text-ink-soft mb-6 leading-relaxed">"Delivered exactly what was promised and then some. The responsive design works flawlessly across all devices, and the code is incredibly clean."</p>
+                        <div class="mt-auto pt-4 border-t border-line">
+                            <h5 class="text-ink font-mono text-sm font-semibold">M. C.</h5>
+                            <p class="text-ink-soft text-xs">Founder, Studio Eight</p>
                         </div>
                     </div>
-                    <!-- Review 3 -->
-                    <div class="tilt-card bg-white p-8 rounded-2xl shadow-sm border border-line reveal-flip">
-                        <div class="flex text-amber-400 mb-4">
-                            <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    <div class="bg-paper p-8 reveal-up flex flex-col h-full">
+                        <div class="flex text-signal mb-5 gap-0.5">
+                            <i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i><i data-lucide="star" class="fill-current w-3.5 h-3.5"></i>
                         </div>
-                        <p class="text-gray-600 mb-6 italic">"Professional, fast, and highly communicative. The final portfolio website exceeded my expectations and looked like a $5,000+ agency project."</p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-white shadow-sm overflow-hidden"><div class="w-full h-full bg-purple-100"></div></div>
-                            <div>
-                                <h5 class="text-ink font-bold text-sm">E. R.</h5>
-                                <p class="text-gray-400 text-xs">Creative Director</p>
-                            </div>
+                        <p class="text-ink-soft mb-6 leading-relaxed">"Professional, fast, and highly communicative. The final portfolio website exceeded my expectations and looked like a $5,000+ agency project."</p>
+                        <div class="mt-auto pt-4 border-t border-line">
+                            <h5 class="text-ink font-mono text-sm font-semibold">E. R.</h5>
+                            <p class="text-ink-soft text-xs">Creative Director</p>
                         </div>
                     </div>
                 </div>
@@ -629,142 +484,119 @@
         </section>
 
         <!-- FAQ -->
-        <section class="py-24 md:py-32 max-w-3xl mx-auto px-6">
-            <div class="text-center mb-12 reveal-up">
-                <span class="section-index block mb-3">08 / QUESTIONS</span>
-                <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">FAQ</h2>
+        <section class="py-20 md:py-28 max-w-3xl mx-auto px-6">
+            <div class="mb-12 reveal-up">
+                <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">Questions</span>
+                <h2 class="font-display text-4xl md:text-5xl font-semibold text-ink">FAQ</h2>
             </div>
 
-            <div class="space-y-4">
-                <!-- Accordion Item 1 -->
-                <div class="accordion-item reveal-up border border-line rounded-2xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none" aria-expanded="false">
+            <div class="border-t border-line">
+                <div class="accordion-item reveal-up">
+                    <button class="accordion-btn w-full py-6 text-left flex justify-between items-center gap-4 font-display text-lg font-semibold text-ink focus:outline-none" aria-expanded="false">
                         What types of websites do you build?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 shrink-0 ml-4"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-ink-soft shrink-0"></i>
                     </button>
-                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                    <div class="accordion-content pb-6 text-ink-soft hidden">
                         <div>I build a wide range of websites including corporate sites, landing pages, personal portfolios, and custom web applications tailored to business needs.</div>
                     </div>
                 </div>
-                <!-- Accordion Item 2 -->
-                <div class="accordion-item reveal-up border border-line rounded-2xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none" aria-expanded="false">
+                <div class="accordion-item reveal-up">
+                    <button class="accordion-btn w-full py-6 text-left flex justify-between items-center gap-4 font-display text-lg font-semibold text-ink focus:outline-none" aria-expanded="false">
                         Can you redesign existing websites?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 shrink-0 ml-4"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-ink-soft shrink-0"></i>
                     </button>
-                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                    <div class="accordion-content pb-6 text-ink-soft hidden">
                         <div>Yes, I specialize in revamping outdated websites to modernize their aesthetic, improve user experience, and boost overall performance metrics.</div>
                     </div>
                 </div>
-                <!-- Accordion Item 3 -->
-                <div class="accordion-item reveal-up border border-line rounded-2xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none" aria-expanded="false">
+                <div class="accordion-item reveal-up">
+                    <button class="accordion-btn w-full py-6 text-left flex justify-between items-center gap-4 font-display text-lg font-semibold text-ink focus:outline-none" aria-expanded="false">
                         Do you build responsive websites?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 shrink-0 ml-4"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-ink-soft shrink-0"></i>
                     </button>
-                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                    <div class="accordion-content pb-6 text-ink-soft hidden">
                         <div>Absolutely. Every project I develop follows a mobile-first approach, ensuring it looks and functions perfectly on smartphones, tablets, and large desktop screens.</div>
                     </div>
                 </div>
-                <!-- Accordion Item 4 -->
-                <div class="accordion-item reveal-up border border-line rounded-2xl bg-white overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 text-left flex justify-between items-center font-bold text-ink focus:outline-none" aria-expanded="false">
+                <div class="accordion-item reveal-up" style="border-bottom: 1px solid var(--line);">
+                    <button class="accordion-btn w-full py-6 text-left flex justify-between items-center gap-4 font-display text-lg font-semibold text-ink focus:outline-none" aria-expanded="false">
                         What technologies do you use?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 shrink-0 ml-4"></i>
+                        <i data-lucide="plus" class="w-5 h-5 text-ink-soft shrink-0"></i>
                     </button>
-                    <div class="accordion-content px-6 pb-5 text-gray-500 hidden">
+                    <div class="accordion-content pb-6 text-ink-soft hidden">
                         <div>My core stack includes HTML5, Tailwind CSS, and Vanilla JavaScript for ultra-fast, lightweight builds. I avoid heavy frameworks when clean, pure code provides better performance.</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="relative py-24 md:py-32 border-t border-line overflow-hidden">
-            <div class="dot-grid" aria-hidden="true"></div>
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative">
-                <div class="reveal-left">
-                    <span class="section-index block mb-3">09 / LET'S TALK</span>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-ink mb-6 leading-tight">Let's Build Something <span class="text-gradient">Amazing</span></h2>
-                    <p class="text-lg text-gray-500 mb-8">Ready to elevate your online presence? Reach out directly for negotiations, custom quotes, or project details.</p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 text-ink font-medium">
-                            <div class="w-10 h-10 rounded-full bg-surface border border-line flex items-center justify-center"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i></div> Available Worldwide
-                        </div>
+        <!-- Contact -->
+        <section id="contact" class="py-20 md:py-28 border-t border-line">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-5 reveal-left">
+                    <span class="font-mono text-xs uppercase tracking-wide text-signal mb-3 block">Let's Talk</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-semibold text-ink mb-6 leading-tight">Let's build something worth shipping.</h2>
+                    <p class="text-lg text-ink-soft mb-8">Ready to elevate your online presence? Reach out directly for negotiations, custom quotes, or project details.</p>
+                    <div class="flex items-center gap-3 font-mono text-sm text-ink-soft">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-signal"></i> Available Worldwide
                     </div>
                 </div>
 
-                <div class="glow-card bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-line reveal-scale">
-                    <h3 class="font-display text-xl font-bold text-ink mb-2">Get in Touch</h3>
-                    <p class="text-gray-500 text-sm mb-8">Pick whichever works best for you — both go straight to me.</p>
-
-                    <div class="space-y-4">
-                        <a href="mailto:vaughnux@proton.me" class="btn-magnetic group flex items-center gap-4 p-5 bg-ink text-white rounded-2xl hover:shadow-glow-primary transition-all">
-                            <div class="relative z-10 w-11 h-11 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
-                            </div>
-                            <div class="relative z-10 min-w-0">
-                                <p class="text-xs text-gray-400 font-medium mb-0.5">Email for negotiations</p>
-                                <p class="font-mono text-sm font-semibold truncate">vaughnux@proton.me</p>
-                            </div>
-                            <i data-lucide="arrow-up-right" class="relative z-10 w-4 h-4 ml-auto text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"></i>
-                        </a>
-<a href="https://www.fiverr.com/s/7jvQDRx" target="_blank" rel="noopener noreferrer" class="relative z-10 group flex items-center gap-4 p-5 bg-surface border border-line rounded-2xl hover:border-[#1DBF73] hover:bg-[#1DBF73]/10 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-    <div class="w-11 h-11 rounded-full bg-white border border-line flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform overflow-hidden">
-        <!-- Replaced the SVG with your PNG -->
-        <img src="Fiverr-Logo.png" alt="Fiverr" class="w-full h-full object-contain p-2" />
-    </div>
-    <div class="min-w-0">
-        <p class="text-xs text-gray-500 font-medium mb-0.5 group-hover:text-[#1DBF73] transition-colors">Hire me on Fiverr</p>
-        <p class="text-sm font-semibold text-ink">View my gig</p>
-    </div>
-    <i data-lucide="external-link" class="w-4 h-4 ml-auto text-gray-400 group-hover:text-[#1DBF73] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"></i>
-</a>
-                    </div>
+                <div class="lg:col-span-7 reveal-right">
+                    <a href="mailto:vaughnux@proton.me" class="contact-link group flex items-center justify-between gap-4 py-7 border-t border-line">
+                        <div>
+                            <p class="text-xs font-mono uppercase tracking-wide text-ink-soft mb-1">Email — for negotiations</p>
+                            <p class="font-display text-2xl md:text-3xl font-semibold text-ink">vaughnux@proton.me</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-6 h-6 text-ink-soft group-hover:text-signal transition-colors shrink-0"></i>
+                    </a>
+                    <a href="https://www.fiverr.com/s/qb8e7K2" target="_blank" rel="noopener noreferrer" class="contact-link group flex items-center justify-between gap-4 py-7 border-t border-b border-line">
+                        <div>
+                            <p class="text-xs font-mono uppercase tracking-wide text-ink-soft mb-1">Hire me on Fiverr</p>
+                            <p class="font-display text-2xl md:text-3xl font-semibold text-ink">View my gig</p>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-6 h-6 text-ink-soft group-hover:text-[#1DBF73] transition-colors shrink-0"></i>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-surface border-t border-line pt-16 pb-8 relative">
-        <div class="max-w-7xl mx-auto px-6">
+    <footer class="border-t border-line pt-16 pb-8">
+        <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-                <a href="#home" class="font-display text-3xl font-bold text-ink tracking-tight">VL<span class="text-primary">.</span></a>
+                <a href="#home" class="font-display text-2xl font-semibold text-ink tracking-tight">VL<span class="text-signal">.</span></a>
 
-                <div class="flex items-center space-x-6 text-sm font-medium text-gray-500">
+                <div class="flex items-center gap-6 font-mono text-xs uppercase tracking-wide text-ink-soft">
                     <a href="#home" class="hover:text-ink transition-colors">Home</a>
                     <a href="#projects" class="hover:text-ink transition-colors">Projects</a>
                     <a href="#services" class="hover:text-ink transition-colors">Services</a>
                     <a href="#about" class="hover:text-ink transition-colors">About</a>
                 </div>
 
-                <div class="flex items-center space-x-4">
-                    <a href="#" aria-label="GitHub" class="w-10 h-10 rounded-full bg-white border border-line flex items-center justify-center text-gray-500 hover:text-ink hover:border-ink transition-all hover:-translate-y-1">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.07.78 2.16 0 1.56-.02 2.81-.02 3.19 0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                <div class="flex items-center gap-3">
+                    <a href="#" aria-label="LinkedIn" class="w-9 h-9 border border-line flex items-center justify-center text-ink-soft hover:text-[#0A66C2] hover:border-[#0A66C2] transition-all">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.68H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
                     </a>
-                    <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white border border-line flex items-center justify-center text-gray-500 hover:text-[#0A66C2] hover:border-[#0A66C2] transition-all hover:-translate-y-1">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.68H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"/></svg>
+                    <a href="https://www.fiverr.com/s/qb8e7K2" target="_blank" rel="noopener noreferrer" aria-label="Fiverr" class="h-9 px-3 border border-line flex items-center justify-center text-ink-soft hover:text-[#1DBF73] hover:border-[#1DBF73] transition-all font-mono text-xs font-semibold tracking-wide">
+                        fiverr<span class="text-[#1DBF73]">.</span>
                     </a>
-                    <a href="https://www.fiverr.com/s/qb8e7K2" target="_blank" rel="noopener noreferrer" aria-label="Fiverr" class="w-10 h-10 rounded-full bg-white border border-line flex items-center justify-center text-gray-500 hover:text-[#1DBF73] hover:border-[#1DBF73] transition-all hover:-translate-y-1">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.98 9.3v10.38h-3.23V12.1h-2.15v7.57H11.3V12.1H9.15v7.57H5.93V9.3h14.05zm-14.05-3.3h14.05v2.8H5.93V6z" /></svg>
-                    </a>
-                    <a href="#" aria-label="Behance" class="w-10 h-10 rounded-full bg-white border border-line flex items-center justify-center text-gray-500 hover:text-[#1769ff] hover:border-[#1769ff] transition-all hover:-translate-y-1">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v2h7V7zm1.7 8.3c0-2.8-2-5.4-5.5-5.4-3.5 0-5.7 2.6-5.7 6.1 0 3.7 2.5 6 6 6 3.1 0 5-2.1 5.3-4.5h-2.5c-.2 1.1-1.2 2-2.7 2-1.7 0-2.7-1.1-2.9-2.8h8.1c0-.4.1-.9.1-1.4zm-8.2-1.6c.2-1.3 1.2-2.3 2.6-2.3 1.5 0 2.3.9 2.5 2.3h-5.1zm-3.3-3.9h-4V5H5v14h3.3v-4.8h3c2.7 0 4.6-1.5 4.6-4.5 0-2.6-1.7-4.4-4.5-4.4h-2.2v4.5zm0-2.3h1.8c1.3 0 1.9.6 1.9 1.7 0 1.1-.6 1.7-1.9 1.7h-1.8v-3.4z"/></svg>
+                    <a href="#" aria-label="Behance" class="w-9 h-9 border border-line flex items-center justify-center text-ink-soft hover:text-[#1769ff] hover:border-[#1769ff] transition-all">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7v2h7V7zm1.7 8.3c0-2.8-2-5.4-5.5-5.4-3.5 0-5.7 2.6-5.7 6.1 0 3.7 2.5 6 6 6 3.1 0 5-2.1 5.3-4.5h-2.5c-.2 1.1-1.2 2-2.7 2-1.7 0-2.7-1.1-2.9-2.8h8.1c0-.4.1-.9.1-1.4zm-8.2-1.6c.2-1.3 1.2-2.3 2.6-2.3 1.5 0 2.3.9 2.5 2.3h-5.1zm-3.3-3.9h-4V5H5v14h3.3v-4.8h3c2.7 0 4.6-1.5 4.6-4.5 0-2.6-1.7-4.4-4.5-4.4h-2.2v4.5zm0-2.3h1.8c1.3 0 1.9.6 1.9 1.7 0 1.1-.6 1.7-1.9 1.7h-1.8v-3.4z"/></svg>
                     </a>
                 </div>
             </div>
 
-            <div class="text-center text-sm text-gray-400 border-t border-line pt-8">
+            <div class="text-center text-xs font-mono text-ink-soft border-t border-line pt-8">
                 &copy; <span id="year"></span> VL Portfolio. All rights reserved. Built with HTML, Vanilla JS & Tailwind.
             </div>
         </div>
     </footer>
 
     <!-- Back to top -->
-    <button id="back-to-top" class="hidden-state fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-ink text-white shadow-glow-primary flex items-center justify-center hover:-translate-y-1" aria-label="Back to top">
-        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    <button id="back-to-top" class="hidden-state fixed bottom-6 right-6 z-40 w-11 h-11 bg-ink text-paper flex items-center justify-center hover:bg-signal transition-colors" aria-label="Back to top">
+        <i data-lucide="arrow-up" class="w-4 h-4"></i>
     </button>
 
     <script src="script.js"></script>
